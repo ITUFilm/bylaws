@@ -1,0 +1,5 @@
+*
+!.gitignore
+!*.tex
+!*.travis.yml
+!README.md

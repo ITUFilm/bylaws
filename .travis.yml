@@ -1,0 +1,13 @@
+before_install:
+- "sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng"
+script:
+- mkdir _build
+- pdflatex -output-directory _build bylaw.tex
+deploy:
+    provider: releases
+    api_key:
+        secure: FC+4G4OxL4gxCnyhjjwFHKqKtrblYIGqr0nbug6WinAf36vtRiFK4L1wNVjTnKIjA/l1TPg9jwud1LhjpA3h5yXeXX/J8DV7d++GQurLPQmG3tGTIOpJUs5jPOpxkJPqHKdYWHLwaT0KG9iN0qQ/++bVNGn1rrDwKqiEOy687fpY15Y8zJOcqhjVGz7xMCIg1gwJyVdSl0G7tRoXigcDNaiAHekWTPXCSueC/jJEhti4IFME+RIg5GV8Zg9zgeplEl14cQfEWNdAK3rUViqHSyx+lzZXhTAluq7U28WOvMvr7HwH13J6TuenYM6H4p93ucnyKGQvD3ui7elea83ryw0UC3WMKcHUKXZXKCwUwK34KRD9fjLV+FfPaY/LFvC/BeOdJxgpYT8X+ZMFX3U2EQeelGlS0q5pz8bp3fbMaUhsJ8sy/XxdvHV62b7pofBTYbt+s9sC5OrU6IY2cN0RHJFbdtaqZv0R0qyVFkOLmkzCeo9wCa9tlf7QqrgvFS6zpYUsEyk2ziP/Jh0wcVKp2Aampl9RiEQPBxdj19daFZleITaXJL/bNQHfOqrZAg3iZesyeS5HbW5bSJLuDq8ZXY84MxSF1/6JJ9wRsznLGbF3u6dMzjhUQAxbgNA3TDO+WXeM3Q0WgOMzCaP5AXZ5tJBYMObL/g3bvL1ruj0Z/ys=
+    file: _build/bylaw.pdf
+    skip_cleanup: true
+    on:
+        tags: true 
